@@ -388,6 +388,13 @@ function chat.AddText(...)
 				eChat.chatLog:InsertColorChange( 130, 130, 130, 255 )
 				eChat.chatLog:AppendText( "["..os.date("%X").."] ")
 			end
+						
+			eChat.chatLog:AppendFunc(function(h)
+				local panel = vgui.Create( "AvatarImage" )
+				panel:SetSize(h, h)
+				panel:SetPlayer( ply, 16 )
+				return {panel = panel, h = h, w = h}
+			end)
 			
 			if eChat.config.seeChatTags and ply:GetNWBool("eChat_tagEnabled", false) then
 				local col = ply:GetNWString("eChat_tagCol", "255 255 255")
