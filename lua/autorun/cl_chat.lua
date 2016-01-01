@@ -131,7 +131,7 @@ function eChat.buildBox()
 		end
 	end
 
-	eChat.chatLog = vgui.Create("RichText", eChat.frame) 
+	eChat.chatLog = vgui.Create("DFancyText", eChat.frame) 
 	eChat.chatLog:SetSize( eChat.frame:GetWide() - 10, eChat.frame:GetTall() - 60 )
 	eChat.chatLog:SetPos( 5, 30 )
 	eChat.chatLog.Paint = function( self, w, h )
@@ -407,6 +407,7 @@ function chat.AddText(...)
 	eChat.chatLog:SetVisible( true )
 	eChat.lastMessage = CurTime()
 --	oldAddText(unpack(msg))
+	eChat.chatLog:GotoTextEnd()
 end
 
 --// Write any server notifications
@@ -421,6 +422,7 @@ hook.Add( "ChatText", "echat_joinleave", function( index, name, text, type )
 		eChat.chatLog:AppendText( text.."\n" )
 		eChat.chatLog:SetVisible( true )
 		eChat.lastMessage = CurTime()
+		eChat.chatLog:GotoTextEnd()
 		return true
 	end
 end)
