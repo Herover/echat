@@ -42,11 +42,11 @@ end
 --// Builds the chatbox but doesn't display it
 function eChat.buildBox()
 	eChat.frame = vgui.Create("DFrame")
-	eChat.frame:SetSize( ScrW()*0.375, ScrH()*0.25 )
+	eChat.frame:SetSize( 625, 300 )
 	eChat.frame:SetTitle("")
 	eChat.frame:ShowCloseButton( false )
 	eChat.frame:SetDraggable( false )
-	eChat.frame:SetPos( ScrW()*0.0116, (ScrH() - eChat.frame:GetTall()) - ScrH()*0.177)
+	eChat.frame:SetPos( 10, (ScrH() - eChat.frame:GetTall()) - 200)
 	eChat.frame.Paint = function( self, w, h )
 		eChat.blur( self, 10, 20, 255 )
 		draw.RoundedBox( 0, 0, 0, w, h, Color( 30, 30, 30, 200 ) )
@@ -54,11 +54,6 @@ function eChat.buildBox()
 		draw.RoundedBox( 0, 0, 0, w, 25, Color( 80, 80, 80, 100 ) )
 	end
 	eChat.oldPaint = eChat.frame.Paint
-	eChat.frame.Think = function()
-		if input.IsKeyDown( KEY_ESCAPE ) then
-			eChat.hideBox()
-		end
-	end
 	
 	local serverName = vgui.Create("DLabel", eChat.frame)
 	serverName:SetText( GetConVarString( "hostname" ) )
