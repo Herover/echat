@@ -157,6 +157,9 @@ function eChat.buildBox()
 		self:SetFGColor( color_white )
 	end
 	eChat.oldPaint2 = eChat.chatLog.Paint
+	eChat.chatLog.PaintTextpart = function( self, text, font, x, y, colour )
+		draw.SimpleTextOutlined(text, font, x, y, colour, TEXT_ALIGN_LEFT, TEXT_ALIGN_BOTTOM, 1, Color(0,0,0))
+	end
 	
 	local text = "Say :"
 
