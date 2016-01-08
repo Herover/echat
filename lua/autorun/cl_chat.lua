@@ -20,6 +20,7 @@ surface.CreateFont( "eChat_18", {
 	size = 18,
 	weight = 500,
 	antialias = true,
+	shadow = true
 } )
 
 surface.CreateFont( "eChat_16", {
