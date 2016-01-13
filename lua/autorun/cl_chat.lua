@@ -158,7 +158,7 @@ function eChat.buildBox()
 	end
 	eChat.oldPaint2 = eChat.chatLog.Paint
 	
-	local outlinecolour = Color( 0, 0, 0 )
+	--[[local outlinecolour = Color( 0, 0, 0 )
 	local outlinewidth = 1
 	local steps = (outlinewidth*2) / 3
 	if ( steps < 1 )  then steps = 1 end
@@ -176,7 +176,7 @@ function eChat.buildBox()
 		surface.SetTextColor( colour )
 		surface.SetTextPos( x, y )
 		surface.DrawText( text )
-	end
+	end]]
 	
 	local text = "Say :"
 
