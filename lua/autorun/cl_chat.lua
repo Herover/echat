@@ -62,7 +62,7 @@ function eChat.buildBox()
 	end
 	
 	local serverName = vgui.Create("DLabel", eChat.frame)
-	serverName:SetText( GetConVarString( "hostname" ) )
+	serverName:SetText( GetHostName() )
 	serverName:SetFont( "eChat_18")
 	serverName:SizeToContents()
 	serverName:SetPos( 5, 4 )
