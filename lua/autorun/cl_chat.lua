@@ -157,8 +157,25 @@ function eChat.buildBox()
 		self:SetFGColor( color_white )
 	end
 	eChat.oldPaint2 = eChat.chatLog.Paint
+	
+	local outlinecolour = Color( 0, 0, 0 )
+	local outlinewidth = 1
+	local steps = (outlinewidth*2) / 3
+	if ( steps < 1 )  then steps = 1 end
 	eChat.chatLog.PaintTextpart = function( self, text, font, x, y, colour )
-		draw.SimpleTextOutlined(text, font, x, y, colour, TEXT_ALIGN_LEFT, TEXT_ALIGN_BOTTOM, 1, Color(0,0,0))
+		surface.SetFont( font )
+		surface.SetTextColor( outlinecolour )
+		
+		for _x=-outlinewidth, outlinewidth, steps do
+			for _y=-outlinewidth, outlinewidth, steps do
+				surface.SetTextPos( x + (_x), y + (_y) )
+				surface.DrawText( text )
+			end
+		end
+		
+		surface.SetTextColor( colour )
+		surface.SetTextPos( x, y )
+		surface.DrawText( text )
 	end
 	
 	local text = "Say :"
