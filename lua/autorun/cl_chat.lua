@@ -401,12 +401,16 @@ function chat.AddText(...)
 	
 	-- Iterate through the strings and colors
 	for _, obj in pairs( {...} ) do
-		if type(obj) == "table" then
+		if IsColor(obj) then
 			eChat.chatLog:InsertColorChange( obj.r, obj.g, obj.b, obj.a )
 			table.insert( msg, Color(obj.r, obj.g, obj.b, obj.a) )
 		elseif type(obj) == "string"  then
 			eChat.chatLog:AppendText( obj )
 			table.insert( msg, obj )
+		elseif type(obj) == "table"  then
+			if obj[1] == "image" then
+        eChat.chatLog:AppendImage({mat = Material(obj[2].img), w = obj[2].w, h = obj[2].h})
+      end
 		elseif obj:IsPlayer() then
 			local ply = obj
 			
