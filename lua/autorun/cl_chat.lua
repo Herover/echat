@@ -10,7 +10,7 @@ end
 eChat = {}
 
 eChat.config = {
-	timeStamps = true,
+	timeStamps = false,
 	position = 1,	
 	fadeTime = 12,
 }
