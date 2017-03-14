@@ -405,7 +405,7 @@ function chat.AddText(...)
 			eChat.chatLog:InsertColorChange( obj.r, obj.g, obj.b, obj.a )
 			table.insert( msg, Color(obj.r, obj.g, obj.b, obj.a) )
 		elseif type(obj) == "string"  then
-			eChat.chatLog:AppendText( obj )
+			eChat.chatLog:AppendText( language.GetPhrase( obj ) )
 			table.insert( msg, obj )
 		elseif type(obj) == "table"  then
 			if obj[1] == "image" then
